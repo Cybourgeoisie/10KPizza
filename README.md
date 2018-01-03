@@ -82,6 +82,10 @@ You can update the packages using
 composer update
 ```
 
+## Reporting Requests, Bugs & Issues
+
+Feel free to add issues to the repository as necessary. If you want to get my attention quicker, you can ping me directly on Twitter: [@cybourgeoisie](https://twitter.com/cybourgeoisie) or [@10K_Pizza](https://twitter.com/10K_Pizza).
+
 ## Donations
 
 Any crypto donations are welcome and greatly appreciated:
