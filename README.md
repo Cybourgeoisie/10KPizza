@@ -2,6 +2,12 @@
 
 This repository is the full package (front-end and back-end) for the [10K Pizza](https://www.10k.pizza) cryptocurrency portfolio. The front-end package can be run without a backend, and [the repo can be found here](https://github.com/Cybourgeoisie/cryptofolio).
 
+## Download
+
+To download and install 10K Pizza locally, you'll need to clone with the "recursive" flag since this repository includes several other repositories:
+
+```git clone --recursive https://github.com/Cybourgeoisie/cryptofolio.git```
+
 ## Requirements
 
 The 10K Pizza backend requires [Docker](https://www.docker.com) and Docker Compose. Using Docker, all of the required packages will be installed within individual containers. Download and install the latest version for your environment.
