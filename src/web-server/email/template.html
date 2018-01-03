@@ -1,0 +1,63 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style type="text/css">
+    body{
+      margin:0;
+      padding:0;
+    }
+    img{
+      border:0 none;
+      height:auto;
+      line-height:100%;
+      outline:none;
+      text-decoration:none;
+    }
+    a img{
+      border:0 none;
+    }
+    .imageFix{
+      display:block;
+    }
+    table, td{
+      border-collapse:collapse;
+    }
+    #bodyTable{
+      height:100% !important;
+      margin:0;
+      padding:0;
+      width:100% !important;
+    }
+  </style>
+</head>
+<body>
+  <table id="bodyTable" align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%"
+    style='font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px;'>
+    <tr style="background: #fff; border-bottom: 1px solid #ddd;">
+      <td align="center" valign="top" width="50%" style="padding: 14px 10px;">
+        <p style="color: #666; text-align: left; text-transform: uppercase; letter-spacing: 2px;">
+          {{SITE_NAME}}
+        </p>
+      </td>
+      <td width="50%">
+        <p style="color: #999; text-align: right; text-transform: uppercase; letter-spacing: 2px;">
+          {{EMAIL_TITLE}}
+        </p>
+      </td>
+    </tr>
+    <tr style="background-color:#fff;">
+      <td colspan="2" style="padding: 14px 20px; line-height:140%">
+        {{EMAIL_CONTENT}}
+      </td>
+    </tr>
+    <tr style="background: #f2f2f2; border-top: 1px solid #ddd;">
+      <td align="center" valign="top" style="padding: 14px 30px;" colspan="2">
+        <p style="text-align: center; text-transform: uppercase; letter-spacing: 1.2px; font-size:95%">
+          <a href="{{SITE_ADDRESS}}" style="color: #999; text-decoration: none;">{{SITE_ADDRESS_CLEAN}}</a>
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "cybourgeoisie/geppetto" : "dev-master",
+        "cybourgeoisie/scrollio" : "dev-master",
+        "aws/aws-sdk-php": "3.*"
+    }
+}

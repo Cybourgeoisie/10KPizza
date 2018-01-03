@@ -1,0 +1,45 @@
+FROM php:7.0.23-apache
+
+RUN apt-get update && apt-get install -y libghc-postgresql-libpq-dev vim \
+	&& docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/ \ 
+	&& docker-php-ext-install pgsql pdo_pgsql
+
+RUN apt-get install -y vim cron
+
+# Production
+COPY app/index.html /var/www/app/index.html
+COPY app/ccc-streamer-utilities.js /var/www/app/ccc-streamer-utilities.js
+COPY app/cryptocoins/webfont/ /var/www/app/cryptocoins/webfont/
+COPY api /var/www/app/api
+COPY src /var/www/src
+COPY vendor /var/www/vendor
+COPY config/config.php /var/www/config/config.php
+
+# Now copy over the crontab
+ADD src/web-server/background/crontab.sh /etc/cron.d/background-cron
+RUN chmod 0644 /etc/cron.d/background-cron
+RUN cron
+
+# Server configuration
+COPY config/10kpizza.conf /etc/apache2/sites-available/10kpizza.conf
+
+EXPOSE 80 443
+
+RUN mkdir /root/sslcerts
+
+VOLUME ["/var/log/apache2", "/root/sslcerts"]
+
+RUN a2enmod rewrite
+RUN a2enmod ssl
+RUN a2ensite 10kpizza.conf
+RUN a2dissite 000-default.conf
+
+# Absolute garbage: https://github.com/sameersbn/docker-gitlab/issues/173
+# More garbage: http://stackoverflow.com/questions/21926465/issues-running-cron-in-docker-on-different-hosts
+# Causes this garbage:
+RUN sed -i '/session    required     pam_loginuid.so/c\#session    required     pam_loginuid.so' /etc/pam.d/cron
+
+# Copy the file to run on start to the home directory
+COPY src/web-server/background/run.sh /root/run.sh
+
+CMD ["/bin/bash", "/root/run.sh"]

@@ -1,0 +1,31 @@
+version: '2'
+services:
+  web:
+    image: 10kpizza-dev
+    container_name: 10kpizza
+    ports:
+    - "80:80"
+    volumes:
+    - ./app:/var/www/app
+    - ./api:/var/www/app/api
+    - ./config/config.php:/var/www/config/config.php
+    - ./src:/var/www/src
+    - ./vendor:/var/www/vendor
+    - ./log/apache2:/var/log/apache2
+    environment:
+        PROGRAM_ENVIRONMENT:   '${PROGRAM_ENVIRONMENT}'
+        AWS_ACCESS_KEY_ID:     '${TENKPIZZA_AWS_ACCESS_KEY_ID}'
+        AWS_SECRET_ACCESS_KEY: '${TENKPIZZA_AWS_SECRET_ACCESS_KEY}'
+        TENKPIZZA_DB_HOST:     '${TENKPIZZA_DB_HOST}'
+        TENKPIZZA_DB_NAME:     '${TENKPIZZA_DB_NAME}'
+        TENKPIZZA_DB_USER:     '${TENKPIZZA_DB_USER}'
+        TENKPIZZA_DB_PASS:     '${TENKPIZZA_DB_PASS}'
+    links:
+    - db:database
+  db:
+    image: 10kpizza-db-dev
+    container_name: 10kpizza-db
+    volumes:
+    - ./log/postgres:/var/log/postgresql
+    volumes_from:
+    - container:10kpizza-db-data

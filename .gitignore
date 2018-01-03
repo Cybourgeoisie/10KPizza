@@ -1,0 +1,51 @@
+# 10K Pizza Sensitive Files #
+#############################
+secret
+
+# Private Keys # 
+################
+*.pem
+*.p12
+private_keys
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+ 
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+node_modules
+uploads
+vendor
+composer.lock
+ 
+# Logs and databases #
+######################
+*.log
+*.sqlite
+logfile
+ 
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
