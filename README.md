@@ -6,7 +6,7 @@ This repository is the full package (front-end and back-end) for the [10K Pizza]
 
 To download and install 10K Pizza locally, you'll need to clone with the "recursive" flag since this repository includes several other repositories:
 
-```git clone --recursive https://github.com/Cybourgeoisie/cryptofolio.git```
+```git clone --recursive https://github.com/Cybourgeoisie/10kpizza.git```
 
 ## Requirements
 
